@@ -13,6 +13,7 @@ public class hashmap {
 		
 		Map<Integer, String > students = new HashMap<>();
 		//  set Hashmap as a whole String = Studends
+		//**Hashmaps put everything is 1 line 
 		
 		//Add studends (.put to add studends)
 		students.put(6813, "Eduardo");
