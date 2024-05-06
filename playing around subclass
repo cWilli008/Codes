@@ -1,0 +1,82 @@
+import java.io.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+
+public class fruities extends Main {
+
+    //private class for array method
+    private Map<String, List<Object>> brunch = new HashMap<>();
+
+    //public variables
+    public fruities() {
+
+    }
+
+    {
+
+    //declare variables
+    this.brunch = new HashMap<>();
+        brunch.put("Bevg", List.of("Snacky", "price"));
+        brunch.put("coffee", List.of("bagel", 5.98));
+        brunch.put("tea", List.of("cerial", 2.33));
+        brunch.put("hot chocolate", List.of("muffin", 4.60));
+        brunch.put("og", List.of("scone", 1.50));
+            }
+
+        //declare instance for searching brunch foods
+        public void searchBrunch(String brunchToSearch) {
+            if( brunch.containsKey(brunchToSearch)) {
+                List<Object> fruitiesInfo = brunch.get(brunchToSearch);
+                System.out.println("The brunch Found is:");
+                System.out.println("Name: " + fruitiesInfo.get(0));
+                System.out.println("Brunch: " + brunchToSearch);
+            } else {
+                System.out.println("The brunch you listed is invalid sorry: " + brunchToSearch);
+            }
+        }
+
+    //declare instance for add
+    public void addbrunch(String Bevg, String Snacky, Double price) {
+        brunch.put(Snacky, List.of(Bevg,price));
+
+    }
+
+    //declare instance for remove
+    //private void removebrunch(String brunchToRemove) {
+
+        public void removebrunch(String Bevg) {
+       brunch.remove(brunch, List.of(Bevg));
+
+    }
+
+
+    //File Reader & writer
+    //Open file for writing
+    public void savebrunchToFile(String filePath) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Cimone\\Desktop\\brunch.csv"))) {
+            for (Map.Entry<String, List<Object>> entry : brunch.entrySet()) {
+                writer.write(entry.getKey() + "," + entry.getValue() + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    //reading from file
+    public void readbrunchFromFile(String filePath) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("brunch.csv"))) {
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+
+
+        }
+    }
+}
+
