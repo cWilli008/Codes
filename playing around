@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        //scanner instance
+        Scanner scanner = new Scanner(System.in);
+
+        //instancw of fruit class
+        fruities fruitManager = new fruities();
+
+
+        //intro print statement
+        System.out.println("Welcome, enter your starting drinks like to begin with: ");
+        String fruitToSearch = scanner.nextLine();
+
+        //calling Searching
+        fruitManager.searchBrunch(fruitToSearch);
+
+        //call method from subclass
+        fruitManager.searchBrunch(fruitToSearch);
+
+        //calling Adding
+        System.out.println("Enter the breakfast menue you'd like to order " +
+                "\nname the snack, entre, and price you'd like to add: ");
+        String newSnacky = scanner.nextLine();
+        String newName = scanner.nextLine();
+        double newPrice = scanner.nextDouble();
+        fruitManager.addbrunch(newName, newSnacky, newPrice);
+
+
+        //calling removing
+        System.out.println("\nEnter the breakfast foods youd like to remove: ");
+        String brunchToRemove = scanner.next();
+        fruitManager.removebrunch(brunchToRemove);
+
+
+        // Save stocks to file
+      fruitManager.savebrunchToFile("C:\\Users\\Cimone\\Desktop\\brunch.csv");
+
+        // Read stocks from file
+      fruitManager.readbrunchFromFile("C:\\Users\\Cimone\\Desktop\\brunch.csv");
+
+    }
+
+    }
